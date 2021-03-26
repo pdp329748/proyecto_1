@@ -77,6 +77,10 @@ var jx;
 var kx;
 
 function testTable(id, start, end) {
+	document.getElementById(id).src = imgOn;
+	setTimeout( function() {
+		document.getElementById(id).src = imgOff;
+    }, 1000);
 	var totalId = "total-" + id.substr(id.length - 1);
 	if(document.getElementById(totalId).value != "") {
 		var startId = "start-" + id.substr(id.length - 1);
@@ -104,7 +108,43 @@ function testTable(id, start, end) {
 	document.getElementById(totalId).innerHTML = "$" + dataSet[i].totalX.toFixed(2);
 }
 
-//testTable("table-2", "12:00:00", "11:00:00");
+function testTableDriver() {
+	var idTemp = document.getElementById("tableX").value;
+	var hrTemp = document.getElementById("hoursX").value;
+	var minTemp = document.getElementById("minutesX").value;
+	var secTemp = document.getElementById("secondsX").value;
+	var startTemp = hrTemp + ":" + minTemp + ":" + secTemp;
+	var hrTemp = document.getElementById("hoursY").value;
+	var minTemp = document.getElementById("minutesY").value;
+	var secTemp = document.getElementById("secondsY").value;
+	var endTemp = hrTemp + ":" + minTemp + ":" + secTemp;
+	testTable(idTemp, startTemp, endTemp);
+}
+
+function timeDiff(start, end) {
+	var startHr = parseInt(start.substr(0, 2));
+	var startMin = parseInt(start.substr(3, 2));
+	var startSec = parseInt(start.substr(6, 2));
+	var endHr = parseInt(end.substr(0, 2));
+	var endMin = parseInt(end.substr(3, 2));
+	var endSec = parseInt(end.substr(6, 2));
+	if(start == end) {
+		return 1;
+	}
+	var startTotal = startHr*60*60 + startMin*60 + startSec;
+	var endTotal = endHr*60*60 + endMin*60 + endSec;
+	if(endTotal <= startTotal) {
+		endTotal += 24*60*60;
+	}
+	let hours = Math.floor((endTotal - startTotal) / 3600) + 1;
+	return hours;
+}
+
+function zero(input) {
+	if(!isNaN(input.value) && input.value.length === 1) {
+		input.value = '0' + input.value;
+	}
+}
 
 // 24*60*60 = 86400
 function timeDiffTest() {
@@ -131,21 +171,4 @@ function timeDiffTest() {
 		}
 	}
 }
-
 //timeDiffTest();
-
-function timeDiff(start, end) {
-	var startHr = parseInt(start.substr(0, 2));
-	var startMin = parseInt(start.substr(4, 2));
-	var startSec = parseInt(start.substr(7, 2));
-	var startTotal = startHr*60*60 + startMin*60 + startSec;
-	var endHr = parseInt(end.substr(0, 2));
-	var endMin = parseInt(end.substr(4, 2));
-	var endSec = parseInt(end.substr(7, 2));	
-	var endTotal = endHr*60*60 + endMin*60 + endSec;
-	if(endTotal <= startTotal) {
-		endTotal += 24*60*60;
-	}
-	let hours = Math.floor((endTotal - startTotal) / 3600) + 1;
-	return hours;
-}

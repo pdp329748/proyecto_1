@@ -8,6 +8,31 @@
 <body>
 	<div id="container">
 	<h2>&nbspProyecto Primer Parcial</h2>
+	<div id="flex-container">
+		<p>&nbspMesa: &nbsp</p>
+		<select id="tableX">
+			<option value="table-1">Mesa 1</option>
+			<option value="table-2">Mesa 2</option>
+			<option value="table-3">Mesa 3</option>
+			<option value="table-4">Mesa 4</option>
+			<option value="table-5">Mesa 5</option>
+			<option value="table-6">Mesa 6</option>
+		</select>
+		<p class="margin">&nbspHora inicial: &nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="hoursX" min="0" max="23"/>
+		<p>&nbsp:&nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="minutesX" min="0" max="59"/>
+		<p>&nbsp:&nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="secondsX" min="0" max="59"/>
+		<p class="margin">&nbspHora final: &nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="hoursY" min="0" max="23"/>
+		<p>&nbsp:&nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="minutesY" min="0" max="59"/>
+		<p>&nbsp:&nbsp</p>
+		<input type="number" value="00" onchange="zero(this)" onkeyup="zero(this)" onclick="zero(this)" id="secondsY" min="0" max="59"/>
+		<p class=margin></p>
+		<button class="button "onclick="testTableDriver()">Probar mesa</button>
+	</div>
 	<div class="grid-container">
 		<div class="grid-inner">
 			<h3>&nbspMesa 1</h3>

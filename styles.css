@@ -19,17 +19,18 @@ body {
 #container {
 	padding-top: 10px;
 	padding-left: 20px;
+	height: 50%
 }
 
 .grid-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-auto-rows: 300px;
-	grid-row-gap: 30px;
+	grid-row-gap: 10px;
 }
 
 .grid-inner {
-	display: grid;
+	display: center;
 	grid-template-rows: 1fr 3fr 1fr;
 	grid-template-columns: auto;
 	align-items: center;
@@ -56,4 +57,33 @@ ul {
 
 li {
 	margin: 5px 0;
+}
+
+input {
+	width: 40px;
+	background-color: lightgray;
+}
+
+option {
+	width: 50px;
+}
+
+select {
+	background-color: lightgray;
+}
+
+button {
+	height: 51px;
+}
+
+.margin {
+	padding-left: 20px;
+}
+
+#flex-container {
+	width: 1fr;
+	height: 50px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
 }
